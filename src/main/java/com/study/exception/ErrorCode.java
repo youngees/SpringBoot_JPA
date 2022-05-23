@@ -9,6 +9,8 @@ import lombok.Getter;
  * 모든 예외를 관리하는 클래스
  * 
  * @AllArgsConstructor : 모든 필드값을 파라미터로 받는 생성자를 만듦
+ * 
+ * enum : 서로 연관된 상수들의 집합을 의미
  */
 
 @Getter

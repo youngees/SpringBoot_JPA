@@ -17,7 +17,12 @@ import lombok.NoArgsConstructor;
  * 
  * @NoArgsConstructor : 해당 클래스의 기본 생성자를 생성해주는 어노테이션. access 속성을 이용해서 동일한 패키지 내의 클래스에서만 객체를 생성할 수 있도록 제어한다.
  * 
- * @Entity : 해당 클래스가 테이블과 매핑되는 JPA의 엔티티 클래스임을 의미한다. 
+ * @Entity : 해당 클래스가 테이블과 매핑되는 JPA의 엔티티 클래스임을 의미한다. 기본적으로 클래스명(Camel Case)을 테이블명(Snake Case)으로 매핑한다. 
+ * 			(ex. user_role 이라는 테이블은 UserRole이라는 클래스로 네이밍) 혹시라도 클래스명과 테이블명이 다를 수밖에 없는 상황에서는 클래스 레벨에 @Table을 선언하고,
+ *			@Table(name = "user_role")과 같이 name 속성을 이용해서 처리해 주면 된다. 
+ *
+ *		※ Entity 클래스는 테이블 그 자체와 같기때문에 각각 멤버변수가 해당 테이블의 컬럼이라는 의미가 되고, 컬럼에 대한 setter를 무작정 생성하는 경우,
+ * 		  객체의 값이 어느 시점에 변했는지 알 수 없다. 이러한 이유로 Entity 클래스에는 절대로 set메서드가 존재해서는 안된다.
  * 
 */
 
@@ -35,7 +40,7 @@ public class Board {
 	*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // PK
+    private Long id; // PK (데이터의 양이 많지 않으면 Integer를 사용해도 괜찮을 듯 하다.)
 
     private String title; // 제목
 

@@ -41,7 +41,8 @@ public class DatabaseConfig {
     /*
      * HikariConfig : 커넥션 풀 라이브러리 중 하나 
      * 
-     * dataSource : 데이터 소스 객체를 생성 (커넥션 풀을 지원하기 위한 인터페이스)
+     * dataSource : 데이터 소스 객체를 생성. 커넥션 풀은 커넥션 객체를 생성해두고, 데이터베이스에 접근하는 사용자에게 미리 생성해둔 커넥션을 제공했다가 다시 돌려받는 방법입니다.
+     * 				데이터 소스는 커넥션 풀을 지원하기 위한 인터페이스!
     */
     public HikariConfig hikariConfig() {
         return new HikariConfig();
@@ -54,7 +55,7 @@ public class DatabaseConfig {
     
     @Bean
     /*
-     * SqlSessionFactory : DB의 커넥션과 SQL 실행에 대한 모든것을 갖는 객체. 60번라인의 factoryBean.setDataSource를 통해 Mapper XML의 경로를 지정한다.
+     * SqlSessionFactory : DB의 커넥션과 SQL 실행에 대한 모든것을 갖는 객체. 65번라인의 factoryBean.setDataSource를 통해 Mapper XML의 경로를 지정한다.
      * 					classpath는 src/main/resources 디렉터리를 의미하며 해당 경로에 Mapper XML을 추가하게 된다. 
      * 
      * SqlSession : SQL 실행에 필요한 모든 메서드(insert, update, delete, select)를 갖는 객체
