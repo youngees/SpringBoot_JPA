@@ -1,5 +1,8 @@
 package com.study.board.entity;
 
+import java.util.List;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
@@ -9,5 +12,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 									선언하면 해당 엔티티 클래스와 매핑되는 테이블인 board 테이블의 CRUD 기능을 사용할 수 있다.
 */
 public interface BoardRepository extends JpaRepository<Board, Long> {
-
+	/**
+     * 게시글 리스트 조회 - (삭제 여부 기준)
+     */
+    List<Board> findAllByDeleteYn(final char deleteYn, final Sort sort);
 }

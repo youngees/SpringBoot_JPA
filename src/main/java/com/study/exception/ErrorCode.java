@@ -5,7 +5,11 @@ import org.springframework.http.HttpStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-//모든 예외를 관리하는 클래스
+/*
+ * 모든 예외를 관리하는 클래스
+ * 
+ * @AllArgsConstructor : 모든 필드값을 파라미터로 받는 생성자를 만듦
+ */
 
 @Getter
 @AllArgsConstructor
