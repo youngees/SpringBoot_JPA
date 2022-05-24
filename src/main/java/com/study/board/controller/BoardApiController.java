@@ -14,12 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.study.board.dto.BoardRequestDto;
 import com.study.board.dto.BoardResponseDto;
 import com.study.board.model.BoardService;
+import com.study.exception.CustomException;
+import com.study.exception.ErrorCode;
 import com.study.paging.CommonParams;
 
 import lombok.RequiredArgsConstructor;
 
 /*
- * @RequiredArgsConstructor : final이 붙거나 @NotNull이 붙은 필드의 생성자를 자동으로 생성해주는 롬복 어노테이션
+ * @RestController : @Controller에 @ResponseBody가 추가된것으로 json 형태로 객체 데이터를 반환하는 것이다.
+ * 					@Controller와 다른점은 controller는 주로 view 를 반환하기 위해 쓰인다는 점이다. 
+ * 
+ * @RequiredArgsConstructor : final이 붙거나 @NotNull이 붙은 필드의 생성자를 자동으로 생성해주는 롬복 어노테이션. 
 */
 
 @RestController
@@ -28,7 +33,6 @@ import lombok.RequiredArgsConstructor;
 public class BoardApiController {
 
     private final BoardService boardService;
-
 
     /**
      * 게시글 생성

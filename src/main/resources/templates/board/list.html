@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!--<html lang="ko" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">-->
+<!-- thymeleaf 3.0버전부터는 밑의 양식대로 써야 적용된다. -->
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 
     <th:block layout:fragment="content">
@@ -160,7 +161,7 @@
     							<td>${num--}</td>
     							<td class="text-left"><a href="${viewUri}">${obj.title}</a></td>
     							<td>${obj.writer}</td>
-    							<td>${moment(obj.createdDate).format('YYYY-MM-DD HH:mm:ss')}</td>
+    							<td>${moment(obj.createdDate).format('YYYY-MM-DD HH:mm')}</td>
     							<td>${obj.hits}</td>
     	   				</tr>
     	   			`;
@@ -192,6 +193,7 @@
      		const pagination = params.pagination;
 
      		// 첫 페이지, 이전 페이지
+     		// &laquo : <<과 같은 역할 ||  &lsaquo : <과 같은 역할
      		if (pagination.existPrevPage) {
      			html += `
      				<li><a href="javascript:void(0)" onclick="findAll(1);" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
@@ -206,6 +208,7 @@
      		}
 
      		// 다음 페이지, 마지막 페이지
+     		//&rsaquo : > 과 같은 역할  ||   &raquo : >>과 같은 역할
      		if (pagination.existNextPage) {
      			html += `
      				<li><a href="javascript:void(0)" onclick="findAll(${pagination.endPage + 1});" aria-label="Next"><span aria-hidden="true">&rsaquo;</span></a></li>

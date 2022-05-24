@@ -49,6 +49,11 @@ public class BoardService {
     @Transactional
     public Long update(final Long id, final BoardRequestDto params) {
 
+    	/*
+    	 * JPA Repository의 findById()는 Optional 클래스를 리턴한다.
+    	 * Optional 이란 ? 반복적인 Null 처리를 피하기 위해 사용되는 클래스로 orElseThrow는 Optional에 포함된 메서드이다. Entity 조회와 예외처리를
+    	 * 				단 한줄로 처리할 수 있다. 
+    	*/
         Board entity = boardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
         entity.update(params.getTitle(), params.getContent(), params.getWriter());
         return id;

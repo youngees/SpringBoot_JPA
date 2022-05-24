@@ -9,8 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 
 /*
  * @RestControllerAdvice : 이 어노테이션은 @ControllerAdvice에 @ResponseBody가 적용된 형태
- * 						@ControllerAdvice는 컨트롤러 전역에서 발생할 수 있는 예외를 잡아 throw 해주고, @ExceptionHandler는 특정 클래스에서 발생할 수 있는 예외를 잡아 throw 해준다.
- * 						일반적으로 @ExceptionHandler는 @ControllerAdvice가 선언된 클래스에 포함된 메서드에 선언한다. 
+ * 						(@ControllerAdvice는 컨트롤러 전역에서 발생할 수 있는 예외를 잡아 throw 해주고, @ExceptionHandler는 특정 클래스에서 발생할 수 있는 예외를 잡아 throw 해준다.
+ * 						일반적으로 @ExceptionHandler는 @ControllerAdvice가 선언된 클래스에 포함된 메서드에 선언한다.)
  * 
  * @Slf4j : 롬복에서 제공해주는 기능으로, 해당 어노테이션이 선언된 클래스에 자동으로 로그 객체를 생성한다. 
  * 
